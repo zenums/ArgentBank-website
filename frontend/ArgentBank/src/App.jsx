@@ -4,7 +4,7 @@ import Home from './components/homepage/Home'
 import NavBar from './components/navbar/NavBar'
 import Footer from './components/footer/Footer'
 import Login from './components/login/Login'
-import Profil from './components/profil/profil'
+import Profil from './components/profil/Profil'
 
 function App() {
 

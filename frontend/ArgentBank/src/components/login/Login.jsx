@@ -27,6 +27,6 @@ function Login() {
       </section>
     </div>
   )
-}
+} 
 
 export default Login
