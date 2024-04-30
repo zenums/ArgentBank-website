@@ -1,5 +1,5 @@
-import Accounts from './components/Accounts'
-import './Profil.css'
+import Accounts from '../components/profil/accounts'
+import '../components/profil/profil.css'
 
 function Profil() {
   return (

@@ -3,7 +3,7 @@ import Logo from "../../assets/argentBankLogo.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
-import "./NavBar.css"
+import "./navBar.css"
 
 function NavBar() {
   return (

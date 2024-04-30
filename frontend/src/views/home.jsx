@@ -1,10 +1,10 @@
-import './Home.css';
-import ItemFeature from './components/ItemFeature';
-import iconChat from '../../assets/icon-chat.png';
-import iconMoney from '../../assets/icon-money.png';
-import iconSecurity from '../../assets/icon-security.png';
+import '../components/homepage/home.css';
+import ItemFeature from '../components/homepage/itemFeature';
+import iconChat from '../assets/icon/icon-chat.png';
+import iconMoney from '../assets/icon/icon-money.png';
+import iconSecurity from '../assets/icon/icon-security.png';
 
-function homePage() {
+function Home() {
   return (
   <>
     <div className="hero">
@@ -25,4 +25,4 @@ function homePage() {
   </>
   )
 }
-export default homePage
+export default Home
