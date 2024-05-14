@@ -1,5 +1,5 @@
-import '../components/homepage/home.css';
-import ItemFeature from '../components/homepage/itemFeature';
+import '../features/homepage/home.css';
+import ItemFeature from '../features/homepage/itemFeature';
 import iconChat from '../assets/icon/icon-chat.png';
 import iconMoney from '../assets/icon/icon-money.png';
 import iconSecurity from '../assets/icon/icon-security.png';
