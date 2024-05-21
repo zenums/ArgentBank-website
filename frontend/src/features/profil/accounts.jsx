@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 
 function Accounts({ title, amount, description }) {
   return (
@@ -14,11 +13,5 @@ function Accounts({ title, amount, description }) {
     </section>
   );
 }
-
-Accounts.propTypes = {
-  title: PropTypes.string,
-  amount: PropTypes.number,
-  description: PropTypes.string,
-};
 
 export default Accounts;

@@ -1,0 +1,11 @@
+.section-error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.section-error span{
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+}

@@ -1,48 +1,63 @@
 import { useState } from "react";
 import Text from "../../../components/input/text/text";
-import { handleChange } from "../../../utils/formHelper";
+import { handleChange, handleSubmit } from "../../../utils/formHelper";
 import { useSelector } from "react-redux";
 import Button from "../../../components/button/button";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../../services/redux/user";
+import { setUserRX } from "../../../services/redux/user";
+import { put } from "../../../services/axios";
+import { useMutation } from "react-query";
+import { useEffect } from "react";
+import { useRef } from "react";
 
 export default function editUsername() {
-  const { firstname, lastname } = useSelector((state) => state.user);
+  const { userName, token } = useSelector((state) => state.user);
+  const [error, setError] = useState(false);
+  const inputReUsername = useRef();
 
   const dispatch = useDispatch();
 
   const [user, setUser] = useState({
-    firstname,
-    lastname,
+    userName,
   });
 
-  const onSubmitForm = (e) => {
-    e.preventDefault();
-    dispatch(setUser(user));
-    console.log(firstname);
-  };
+  const { mutate } = useMutation(() => put("user/profile", user, token), {
+    onSuccess: (data) => {
+      console.log(data.body.userName);
+      dispatch(setUserRX(user));
+      
+    },
+    onError: (error) => {
+      console.error(error);
+      setError(true);
+    },
+  });
+
+  useEffect(() => {
+    if (error) {
+      inputReUsername.current.classList.add("error");
+      setTimeout(() => {
+        inputReUsername.current.classList.remove("error");
+        setError(false);
+      }, 500);
+    }
+    if (!error) return;
+  }, [error]);
 
   return (
-    <form className="form-edit-user" onSubmit={(e) => onSubmitForm(e)}>
-      <div className="input-wrapper ">
+    <form className="form-edit-user" onSubmit={(e) => handleSubmit(e, mutate)}>
+      <div className="input-wrapper" ref={inputReUsername}>
         <Text
-          value={user.firstname}
-          name={"firstname"}
-          label={"First Name"}
-          onChange={(e) => handleChange(e, setUser)}
-        />
-      </div>
-      <div className="input-wrapper ">
-        <Text
-          value={user.lastname}
-          name={"lastname"}
-          label={"Last Name"}
+          value={user.userName}
+          name={"userName"}
+          label={"Username"}
           onChange={(e) => handleChange(e, setUser)}
         />
       </div>
       <Button variant="primary" type="submit">
-        Login
+        save
       </Button>
+      {error && <div className="error-message">Une erreur est survenue...</div>}
     </form>
   );
 }

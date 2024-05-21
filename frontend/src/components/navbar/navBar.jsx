@@ -10,7 +10,7 @@ import "./navBar.css";
 function NavBar() {
   const user = useSelector((state) => state.user);
 
-  const firstname = user.firstname;
+  const username = user.userName;
   const isLogin = user.isLogin;
 
   return (
@@ -25,7 +25,7 @@ function NavBar() {
       <div className="login-nav">
         {isLogin ? (
           <>
-            <UserAvatar firstname={firstname}/>
+            <UserAvatar username={username}/>
             <Logout/>
           </>
         ) : (

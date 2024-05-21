@@ -6,7 +6,6 @@
   margin-top: 3rem;
   padding: 2rem;
 }
-
 .sign-in-icon {
   font-size: 5rem;
 }
@@ -29,4 +28,28 @@
 }
 .input-wrapper label {
   font-weight: bold;
+}
+.login .button.primary{
+  margin: 15px auto;
+  width: 100%;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.input-wrapper.error{
+  animation: shake 0.3s;
+}
+.input-wrapper.error input{
+  border: 1px solid red;
+}
+.error-message{
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 0.7rem;
 }

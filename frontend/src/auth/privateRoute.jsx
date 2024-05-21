@@ -1,20 +1,17 @@
-import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Access from "../views/access";
 
-export const PrivateRoute = function({element}) {
+export const PrivateRoute = function ({ element }) {
+  const user = useSelector((state) => {
+    return state.user;
+  });
 
-//   const user = useSelector(function(state) {
-//     return state.user;
-//   });
+  const isLogin = user.isLogin;
 
-//   const isLogin = user.islogin;
-
-  const isLogin = true;
 
   if (isLogin) {
     return element;
   } else {
-    return <Access/>;
+    return <Access />;
   }
 };

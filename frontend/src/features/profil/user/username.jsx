@@ -7,8 +7,7 @@ import Popup from "./popup";
 export default function Username() {
   const [showPopup, setShowPopup] = useState(false);
 
-  const user = useSelector((state) => state.user);
-  const { firstname, lastname } = user;
+  const { firstname, lastname } = useSelector((state) => state.user);
 
   return (
     <div className="header">
@@ -18,8 +17,8 @@ export default function Username() {
         {firstname} {lastname}
       </h1>
       <Button variant="primary" onClick={() => setShowPopup(true)}>
-        Edit Name
-      </Button>{" "}
+        Edit Username
+      </Button>
       {showPopup &&
         createPortal(<Popup setShowPopup={setShowPopup} />, document.body)}
     </div>

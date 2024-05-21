@@ -3,24 +3,24 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   firstname: "Théo",
   lastname: "Coyral",
+  userName: "theocoyral",
   email: "",
-  userName: "",
   token: "",
-  isLogin: true,
+  isLogin: false,
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUser(state, action) {
+    setUserRX(state, action) {
       const updatedFields = action.payload; 
       return {
         ...state,
         ...updatedFields, 
       };
     },
-    resetUser(state) {
+    resetUser() {
       return {
         ...initialState, 
       };
@@ -28,6 +28,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser, resetUser } = userSlice.actions;
+export const { setUserRX , resetUser } = userSlice.actions;
 
 export default userSlice.reducer;

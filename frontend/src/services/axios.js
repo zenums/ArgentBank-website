@@ -1,10 +1,7 @@
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const url_backend = import.meta.env.VITE_API_URL;
-
-console.log("ckend url", url_backend);
-
-console.log("url_backend", url_backend);
 
 const instance = axios.create({
   baseURL: url_backend,
@@ -13,22 +10,29 @@ const instance = axios.create({
   },
 });
 
-// instanceTMDB.interceptors.request.use(
-//     (config: AxiosRequestConfig) => {
+// const token = useSelector((state) => state.user.token);
+
+// instance.interceptors.request.use(
+//     (config) => {
 //         if (tokenTMDB && config.headers) {
-//             config.headers.Authorization = `Bearer ${tokenTMDB}`;
+//             config.headers.Authorization = `Bearer ${token}`;
 //         }
 //         else {
 //             console.error("Token non défini");
 //         }
 //         return config;
 //     },
-//     (error: AxiosError) => {
+//     (error) => {
 //         return Promise.reject(error);
 //     }
 // );
 
-const get = async (url) => {
+const get = async (url, token) => {
+  if (token) {
+    instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  } else {
+    console.log("Token non défini");
+  }
   const response = await instance.get(url);
   if (response.status === 200) {
     return response.data;
@@ -38,7 +42,12 @@ const get = async (url) => {
   }
 };
 
-const post = async (url, data) => {
+const post = async (url, data,token) => {
+  if (token) {
+    instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  } else {
+    console.log("Token non défini");
+  }
   const response = await instance.post(url, data);
   if (response.status === 200) {
     return response.data;
@@ -48,7 +57,12 @@ const post = async (url, data) => {
   }
 };
 
-const put = async (url, data) => {
+const put = async (url, data,token) => {
+  if (token) {
+    instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    console.log("Token non défini");
+  }
   const response = await instance.put(url, data);
   if (response.status === 200) {
     return response.data;
@@ -57,7 +71,12 @@ const put = async (url, data) => {
     throw new Error("Échec de la requête Axios");
   }
 };
-const del = async (url) => {
+const del = async (url,token) => {
+  if (token) {
+    instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    console.log("Token non défini");
+  }
   const response = await instance.delete(url);
   if (response.status === 200) {
     return response.data;

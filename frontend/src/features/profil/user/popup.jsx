@@ -5,7 +5,7 @@ export default function popup({ setShowPopup}) {
   
   return (
     <Popup setShowPopup={setShowPopup}>
-      <h2>Edit Name</h2>
+      <h2>Edit Username</h2>
       <EditUsername />
     </Popup>
   );
