@@ -10,22 +10,22 @@ const instance = axios.create({
   },
 });
 
-// const token = useSelector((state) => state.user.token);
+const token = useSelector((state) => state.user.token);
 
-// instance.interceptors.request.use(
-//     (config) => {
-//         if (tokenTMDB && config.headers) {
-//             config.headers.Authorization = `Bearer ${token}`;
-//         }
-//         else {
-//             console.error("Token non défini");
-//         }
-//         return config;
-//     },
-//     (error) => {
-//         return Promise.reject(error);
-//     }
-// );
+instance.interceptors.request.use(
+    (config) => {
+        if (tokenTMDB && config.headers) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        else {
+            console.error("Token non défini");
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
 
 const get = async (url, token) => {
   if (token) {
