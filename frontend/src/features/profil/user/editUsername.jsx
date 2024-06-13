@@ -22,10 +22,8 @@ export default function editUsername() {
   });
 
   const { mutate } = useMutation(() => put("user/profile", user, token), {
-    onSuccess: (data) => {
-      console.log(data.body.userName);
+    onSuccess: () => {
       dispatch(setUserRX(user));
-      
     },
     onError: (error) => {
       console.error(error);

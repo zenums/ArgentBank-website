@@ -4,17 +4,15 @@ import { createPortal } from "react-dom";
 import Button from "../../../components/button/button";
 import Popup from "./popup";
 
-export default function Username() {
+export default function Username({ profil }) {
   const [showPopup, setShowPopup] = useState(false);
-
-  const { firstname, lastname } = useSelector((state) => state.user);
 
   return (
     <div className="header">
       <h1>
         Welcome back
         <br />
-        {firstname} {lastname}
+        {profil.firstName} {profil.lastName}
       </h1>
       <Button variant="primary" onClick={() => setShowPopup(true)}>
         Edit Username

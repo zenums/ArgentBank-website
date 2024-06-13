@@ -8,7 +8,7 @@ import Footer from "./components/footer/footer";
 import Login from "./views/login";
 import Profil from "./views/profil";
 import { PrivateRoute } from "./auth/privateRoute";
-import { QueryClientProvider,QueryClient } from "react-query";
+import { QueryClientProvider, QueryClient } from "react-query";
 import Notfound from "./views/notfound";
 
 function App() {
