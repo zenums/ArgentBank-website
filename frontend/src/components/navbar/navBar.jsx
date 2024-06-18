@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Logo from "../../assets/argentBankLogo.png";
+import Logo from "../../assets/argentBankLogo.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons"; 
 import { useSelector } from "react-redux"; 

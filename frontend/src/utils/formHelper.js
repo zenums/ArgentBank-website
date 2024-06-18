@@ -1,4 +1,3 @@
-/* eslint-disable */
 export const handleSubmit = function (e, mutate) {
   e.preventDefault();
   mutate();

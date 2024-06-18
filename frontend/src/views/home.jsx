@@ -1,8 +1,8 @@
 import '../features/homepage/home.css';
 import ItemFeature from '../features/homepage/itemFeature';
-import iconChat from '../assets/icon/icon-chat.png';
-import iconMoney from '../assets/icon/icon-money.png';
-import iconSecurity from '../assets/icon/icon-security.png';
+import iconChat from '../assets/icon/icon-chat.webp';
+import iconMoney from '../assets/icon/icon-money.webp';
+import iconSecurity from '../assets/icon/icon-security.webp';
 
 function Home() {
   return (
